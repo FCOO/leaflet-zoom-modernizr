@@ -19,7 +19,7 @@
 
 
 $leaflet-min-zoom		:  1 !default; 
-$leaflet-max-zoom		: 16 !default; 
+$leaflet-max-zoom		: 18 !default; 
 $leaflet-incl-table-display	: false !default;  //true: include display for table-elements (table, tr, td etc.)
 
 //******************************************************************************************
@@ -75,7 +75,7 @@ $leaflet-incl-table-display	: false !default;  //true: include display for table
 					display: none !important;
 				}
 			}
-			$zoom: 0;		
+			$zoom: -1;		
 		}
 	}
 }

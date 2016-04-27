@@ -26,11 +26,15 @@
 
 	  _zoomModernizr: function ( /*e*/ ) {
 			var map					= this._map,
-					zoom				= map.getZoom(),
-					minZoom			= map.getMinZoom(),
+					zoom				= map.getZoom() || 0,
+					minZoom			= map.getMinZoom() || 0,
 					maxZoom			= map.getMaxZoom(),
 					$container	= $(map.getContainer()),
 					i;
+
+			if (maxZoom === Infinity)
+				maxZoom = L.TileLayer.prototype.options.maxZoom;
+
 			for (i=minZoom; i<=maxZoom; i++ ){
 				$container.toggleClass( 'leaflet-zoom-' + i						, i == zoom	);
 				$container.toggleClass( 'leaflet-zoom-' + i + '-up'		,	i <= zoom	);
