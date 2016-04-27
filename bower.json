@@ -1,0 +1,37 @@
+{
+  "name": "leaflet-zoom-modernizr",
+  "version": "1.0.0",
+  "homepage": "https://github.com/FCOO/leaflet-zoom-modernizr",
+  "authors": [
+    "NielsHolt"
+  ],
+  "description": "",
+  "main": [
+    "dist/leaflet-zoom-modernizr.min.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/leaflet-zoom-modernizr.git"
+  },
+  "dependencies": {
+    "jquery": "latest",
+    "leaflet": "latest"
+  },
+  "devDependencies": {
+    "bourbon": "latest",
+    "modernizr-mixin": "latest",
+    "mathsass": "latest",
+    "modernizr-scss": "https://github.com/FCOO/modernizr-scss.git#latest"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ]
+}

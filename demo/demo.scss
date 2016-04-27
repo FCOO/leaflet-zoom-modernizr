@@ -1,0 +1,57 @@
+/*
+
+DEMO.scss for github/fcoo/leaflet-zoom-modernizr/demo/index.html
+
+*/
+
+//BOURBON - http://bourbon.io/
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+//MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
+@import "../bower_components/modernizr-mixin/stylesheets/modernizr";
+
+//MATHSASS - https://github.com/terkel/mathsass
+@import "../bower_components/mathsass/dist/math";
+
+
+//MODERNIZR-SASS - http://github.com/FCOO/modernizr-scss
+@import "../bower_components/modernizr-scss/dist/modernizr-scss";
+
+//MODERNIZR-SASS - http://github.com/FCOO/modernizr-scss
+@import "../src/leaflet-zoom-modernizr";
+
+.demo-marker {
+	
+	box-sizing: content-box; /* border-box */
+	border				: 1px solid red;
+	border-radius	: 50%;
+	margin	: 0;
+
+	width	: 20px;
+	height: 20px;
+
+	margin-left	: -10px;
+	margin-top	: -10px;
+
+	padding	: 0;
+
+	color					: black;
+	font-size			: 10px;
+	line-height		: 20px;
+	font-family		: Arial;
+  text-align		: center;	
+	letter-spacing: -1px;
+	padding-right	: 1px; //To compensate for the last letter-spacing
+
+
+	background-color: rgba(255,255,255,0.2);
+	&:hover { 	background-color: rgba(255,255,255,0.7); }
+
+	
+	@include leaflet-zoom-size( 12 /*$max-size*/, 7 /*$max-zoom*/);
+
+	.leaflet-zoom-8-up & {
+		&:before { content: 'MSI'; }
+		box-shadow: 0px 0px 0px 1px red;
+	}
+}

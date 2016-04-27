@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="font-size: 100%">
+<head>
+	<title>fcoo.dk - leaflet-zoom-modernizr - Demo</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+	<meta name='copyright' content='FCOO'>
+	<meta name='owner' content='FCOO'>
+
+  <link  href="bower_components.css" rel="stylesheet">	
+  <link  href="demo.css" rel="stylesheet">	
+</head>
+
+<body>
+	<div id="map" style="width: 600px; height: 400px"></div>
+	<div id="zoom" style="width: 160px; height: 20px"></div>
+
+
+	
+	
+	<script src="bower_components.js"></script>
+	<!-- <script src="../bower_components/leaflet/dist/leaflet-src.js"></script> -->
+	<script src="../src/leaflet-zoom-modernizr.js"></script>
+
+	
+	
+	<script>
+		//Set default path to leaflet icon images
+		L.Icon.Default.imagePath = "\images";
+
+		var center				= [56.1020, 11.2782]
+				centerLatLng	=	L.latLng( center ),
+				demoDivIcon = L.divIcon({className: 'demo-marker', iconSize:null, iconAnchor:null});			
+
+		
+		var map = L.map('map', {minZoom:1, maxZoom:20}).setView(center, 6);
+		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 16,
+       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
+     }).addTo(map);
+		map.on('zoomend', function( e ){ document.getElementById("zoom").innerHTML = 'zoom = '+this.getZoom(); }, map);
+
+		L.marker(centerLatLng, {icon: demoDivIcon}).addTo(map);		
+
+
+	</script>
+</body>
+</html>
