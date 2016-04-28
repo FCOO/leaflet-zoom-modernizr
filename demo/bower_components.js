@@ -13196,7 +13196,6 @@ L.Icon = L.Class.extend({
 
 		img.className = 'leaflet-marker-' + name + ' ' + options.className;
 
-
 		if (anchor) {
 			img.style.marginLeft = (-anchor.x) + 'px';
 			img.style.marginTop  = (-anchor.y) + 'px';
@@ -14897,7 +14896,7 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		}
 
 		this._requestUpdate();
-
+		
 		this.fire('remove');
 		this._map = null;
 	},
@@ -17952,7 +17951,7 @@ L.Control.Attribution = L.Control.extend({
 				this.addAttribution(map._layers[i].getAttribution());
 			}
 		}
-
+		
 		map
 		    .on('layeradd', this._onLayerAdd, this)
 		    .on('layerremove', this._onLayerRemove, this);
