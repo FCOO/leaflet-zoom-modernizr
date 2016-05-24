@@ -11,7 +11,9 @@
 
 $leaflet-min-zoom		:  1 !default; 
 $leaflet-max-zoom		: 18 !default; 
-$leaflet-incl-table-display	: false !default;  //true: include display for table-elements (table, tr, td etc.)
+$leaflet-incl-table-display	: false !default; //true: include display for table-elements (table, tr, td etc.)
+$display-value							: '' !default;		//$display-value = value for display:... when element is visible. If $display-value == '' => no class created.
+
 
 //******************************************************************************************
 //	@mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom, $max-zoom, $incl-table-display)
@@ -23,10 +25,10 @@ $leaflet-incl-table-display	: false !default;  //true: include display for table
 @mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom: $leaflet-min-zoom, $max-zoom: $leaflet-max-zoom, $incl-table-display: $leaflet-incl-table-display ){
 
 	@for $zoom from $min-zoom through $max-zoom {
-						//show-and-hide-for-modernizr-test( $modernizr-test								, $parent-element-type, $incl-no-selector	, $fail-as-default	, $incl-table-display)
-		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom					,	''									, false							,	false							,	$incl-table-display);
-		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -up		,	''									, false							,	false							,	$incl-table-display);
-		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -down	,	''									, false							,	false							,	$incl-table-display);
+						//show-and-hide-for-modernizr-test( $modernizr-test								, $parent-element-type, $incl-no-selector	, $display-value, $incl-table-display)
+		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom					,	''									, false							,	$display-value, $incl-table-display);
+		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -up		,	''									, false							,	$display-value, $incl-table-display);
+		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -down	,	''									, false							,	$display-value, $incl-table-display);
 	}
 
 }
