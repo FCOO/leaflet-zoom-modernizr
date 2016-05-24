@@ -11,8 +11,9 @@
 
 $leaflet-min-zoom		:  1 !default; 
 $leaflet-max-zoom		: 18 !default; 
-$leaflet-incl-table-display	: false !default; //true: include display for table-elements (table, tr, td etc.)
-$display-value							: '' !default;		//$display-value = value for display:... when element is visible. If $display-value == '' => no class created.
+
+$display-value			: '' !default;		// Value for display:... when element is visible. Default = '' => no class created.
+
 
 
 //******************************************************************************************
@@ -22,7 +23,7 @@ $display-value							: '' !default;		//$display-value = value for display:... wh
 //	
 
 //******************************************************************************************
-@mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom: $leaflet-min-zoom, $max-zoom: $leaflet-max-zoom, $incl-table-display: $leaflet-incl-table-display ){
+@mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom: $leaflet-min-zoom, $max-zoom: $leaflet-max-zoom, $incl-table-display: true ){
 
 	@for $zoom from $min-zoom through $max-zoom {
 						//show-and-hide-for-modernizr-test( $modernizr-test								, $parent-element-type, $incl-no-selector	, $display-value, $incl-table-display)
