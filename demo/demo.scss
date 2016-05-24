@@ -20,6 +20,9 @@ DEMO.scss for github/fcoo/leaflet-zoom-modernizr/demo/index.html
 //MODERNIZR-SASS - http://github.com/FCOO/modernizr-scss
 @import "../src/leaflet-zoom-modernizr";
 
+$lzm-incl-table-display: false;
+@include show-and-hide-for-leaflet-zoom-modernizr(3, 13);
+
 .demo-marker {
 	
 	box-sizing: content-box; /* border-box */

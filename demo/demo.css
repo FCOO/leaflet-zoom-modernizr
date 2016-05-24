@@ -13,6 +13,270 @@ DEMO.scss for github/fcoo/leaflet-zoom-modernizr/demo/index.html
 
 
 ************************************************/
+.leaflet-zoom-3 .hide-for-leaflet-zoom-3 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-3 .show-for-leaflet-zoom-3 {
+  display: none !important;
+}
+
+.leaflet-zoom-3-up .hide-for-leaflet-zoom-3-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-3-up .show-for-leaflet-zoom-3-up {
+  display: none !important;
+}
+
+.leaflet-zoom-3-down .hide-for-leaflet-zoom-3-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-3-down .show-for-leaflet-zoom-3-down {
+  display: none !important;
+}
+
+.leaflet-zoom-4 .hide-for-leaflet-zoom-4 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-4 .show-for-leaflet-zoom-4 {
+  display: none !important;
+}
+
+.leaflet-zoom-4-up .hide-for-leaflet-zoom-4-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-4-up .show-for-leaflet-zoom-4-up {
+  display: none !important;
+}
+
+.leaflet-zoom-4-down .hide-for-leaflet-zoom-4-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-4-down .show-for-leaflet-zoom-4-down {
+  display: none !important;
+}
+
+.leaflet-zoom-5 .hide-for-leaflet-zoom-5 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-5 .show-for-leaflet-zoom-5 {
+  display: none !important;
+}
+
+.leaflet-zoom-5-up .hide-for-leaflet-zoom-5-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-5-up .show-for-leaflet-zoom-5-up {
+  display: none !important;
+}
+
+.leaflet-zoom-5-down .hide-for-leaflet-zoom-5-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-5-down .show-for-leaflet-zoom-5-down {
+  display: none !important;
+}
+
+.leaflet-zoom-6 .hide-for-leaflet-zoom-6 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-6 .show-for-leaflet-zoom-6 {
+  display: none !important;
+}
+
+.leaflet-zoom-6-up .hide-for-leaflet-zoom-6-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-6-up .show-for-leaflet-zoom-6-up {
+  display: none !important;
+}
+
+.leaflet-zoom-6-down .hide-for-leaflet-zoom-6-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-6-down .show-for-leaflet-zoom-6-down {
+  display: none !important;
+}
+
+.leaflet-zoom-7 .hide-for-leaflet-zoom-7 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-7 .show-for-leaflet-zoom-7 {
+  display: none !important;
+}
+
+.leaflet-zoom-7-up .hide-for-leaflet-zoom-7-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-7-up .show-for-leaflet-zoom-7-up {
+  display: none !important;
+}
+
+.leaflet-zoom-7-down .hide-for-leaflet-zoom-7-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-7-down .show-for-leaflet-zoom-7-down {
+  display: none !important;
+}
+
+.leaflet-zoom-8 .hide-for-leaflet-zoom-8 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-8 .show-for-leaflet-zoom-8 {
+  display: none !important;
+}
+
+.leaflet-zoom-8-up .hide-for-leaflet-zoom-8-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-8-up .show-for-leaflet-zoom-8-up {
+  display: none !important;
+}
+
+.leaflet-zoom-8-down .hide-for-leaflet-zoom-8-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-8-down .show-for-leaflet-zoom-8-down {
+  display: none !important;
+}
+
+.leaflet-zoom-9 .hide-for-leaflet-zoom-9 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-9 .show-for-leaflet-zoom-9 {
+  display: none !important;
+}
+
+.leaflet-zoom-9-up .hide-for-leaflet-zoom-9-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-9-up .show-for-leaflet-zoom-9-up {
+  display: none !important;
+}
+
+.leaflet-zoom-9-down .hide-for-leaflet-zoom-9-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-9-down .show-for-leaflet-zoom-9-down {
+  display: none !important;
+}
+
+.leaflet-zoom-10 .hide-for-leaflet-zoom-10 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-10 .show-for-leaflet-zoom-10 {
+  display: none !important;
+}
+
+.leaflet-zoom-10-up .hide-for-leaflet-zoom-10-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-10-up .show-for-leaflet-zoom-10-up {
+  display: none !important;
+}
+
+.leaflet-zoom-10-down .hide-for-leaflet-zoom-10-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-10-down .show-for-leaflet-zoom-10-down {
+  display: none !important;
+}
+
+.leaflet-zoom-11 .hide-for-leaflet-zoom-11 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-11 .show-for-leaflet-zoom-11 {
+  display: none !important;
+}
+
+.leaflet-zoom-11-up .hide-for-leaflet-zoom-11-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-11-up .show-for-leaflet-zoom-11-up {
+  display: none !important;
+}
+
+.leaflet-zoom-11-down .hide-for-leaflet-zoom-11-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-11-down .show-for-leaflet-zoom-11-down {
+  display: none !important;
+}
+
+.leaflet-zoom-12 .hide-for-leaflet-zoom-12 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-12 .show-for-leaflet-zoom-12 {
+  display: none !important;
+}
+
+.leaflet-zoom-12-up .hide-for-leaflet-zoom-12-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-12-up .show-for-leaflet-zoom-12-up {
+  display: none !important;
+}
+
+.leaflet-zoom-12-down .hide-for-leaflet-zoom-12-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-12-down .show-for-leaflet-zoom-12-down {
+  display: none !important;
+}
+
+.leaflet-zoom-13 .hide-for-leaflet-zoom-13 {
+  display: none !important;
+}
+
+.no-leaflet-zoom-13 .show-for-leaflet-zoom-13 {
+  display: none !important;
+}
+
+.leaflet-zoom-13-up .hide-for-leaflet-zoom-13-up {
+  display: none !important;
+}
+
+.no-leaflet-zoom-13-up .show-for-leaflet-zoom-13-up {
+  display: none !important;
+}
+
+.leaflet-zoom-13-down .hide-for-leaflet-zoom-13-down {
+  display: none !important;
+}
+
+.no-leaflet-zoom-13-down .show-for-leaflet-zoom-13-down {
+  display: none !important;
+}
+
 .demo-marker {
   box-sizing: content-box;
   /* border-box */
