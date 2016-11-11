@@ -1,7 +1,7 @@
 /***********************************************
-gruntfile.js for {%= name %}
+gruntfile.js for leaflet-zoom-modernizr
 
-https://github.com/FCOO/{%= name %}
+https://github.com/FCOO/leaflet-zoom-modernizr
 
 ***********************************************/
 
