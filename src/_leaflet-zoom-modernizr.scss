@@ -1,79 +1,79 @@
 /***********************************************
-	_leaflet-zoom-modernizr.scss, 
+    _leaflet-zoom-modernizr.scss, 
 
-	(c) 2016, FCOO
+    (c) 2016, FCOO
 
-	https://github.com/FCOO/leaflet-zoom-modernizr
-	https://github.com/FCOO
+    https://github.com/FCOO/leaflet-zoom-modernizr
+    https://github.com/FCOO
 
 
 ************************************************/
 
-$leaflet-min-zoom		:  1 !default; 
-$leaflet-max-zoom		: 18 !default; 
+$leaflet-min-zoom:  1 !default; 
+$leaflet-max-zoom: 18 !default; 
 
 
-$lzm-display-value			: '' !default;		// Value for display:... when element is visible. Default = '' => no class created.
-$lzm-incl-no-selector	: false !default; // if true classes for 'show-for-no-TEST are included
-$lzm-incl-table-display	: true !default;	// if true classes for table-elements (TABLE, TR,TD etc.) are included 
+$lzm-display-value     : '' !default;    // Value for display:... when element is visible. Default = '' => no class created.
+$lzm-incl-no-selector  : false !default; // if true classes for 'show-for-no-TEST are included
+$lzm-incl-table-display: true !default;  // if true classes for table-elements (TABLE, TR,TD etc.) are included 
 
 
 //******************************************************************************************
-//	@mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom, $max-zoom)
-//	Create show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down, 
-//	N = any number between $min-zoom and $max-zoom
-//	
+//    @mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom, $max-zoom)
+//    Create show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down, 
+//    N = any number between $min-zoom and $max-zoom
+//    
 
 //******************************************************************************************
 @mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom: $leaflet-min-zoom, $max-zoom: $leaflet-max-zoom){
 
-	@for $zoom from $min-zoom through $max-zoom {
-						//show-and-hide-for-modernizr-test( $modernizr-test								, $parent-element-type, $incl-no-selector			, $display-value		, $incl-table-display			)
-		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom					,	''									, $lzm-incl-no-selector	,	$lzm-display-value, $lzm-incl-table-display	);
-		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -up		,	''									, $lzm-incl-no-selector	,	$lzm-display-value, $lzm-incl-table-display	);
-		@include	show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -down	,	''									, $lzm-incl-no-selector	,	$lzm-display-value, $lzm-incl-table-display	);
-	}
+    @for $zoom from $min-zoom through $max-zoom {
+                        //show-and-hide-for-modernizr-test( $modernizr-test        , $parent-element-type, $incl-no-selector    , $display-value    , $incl-table-display     )
+        @include    show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom        , ''                  , $lzm-incl-no-selector, $lzm-display-value, $lzm-incl-table-display );
+        @include    show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -up  , ''                  , $lzm-incl-no-selector, $lzm-display-value, $lzm-incl-table-display );
+        @include    show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -down, ''                  , $lzm-incl-no-selector, $lzm-display-value, $lzm-incl-table-display );
+    }
 
 }
 
 //******************************************************************************************
 
 //******************************************************************************************
-//	leaflet-zoom-size - creates css to scale a element to the map zoom
-//	$max-size	: The size of the element at map-zoom-level = $max-zoom
-//	$max-zoom	:	The zoom-level where the element has size = $max-size
-//	$selector	: the selector of the element(s). Default '&' means the mixin is included inside a class-declaration 
-//	$auto-hide: If true the element will be hidden when the element is smaller than 2px 
+//    leaflet-zoom-size - creates css to scale a element to the map zoom
+//    $max-size    : The size of the element at map-zoom-level = $max-zoom
+//    $max-zoom    :    The zoom-level where the element has size = $max-size
+//    $selector    : the selector of the element(s). Default '&' means the mixin is included inside a class-declaration 
+//    $auto-hide: If true the element will be hidden when the element is smaller than 2px 
 //******************************************************************************************
 @mixin leaflet-zoom-size( $max-size, $max-zoom, $selector: '&', $auto-hide: true){
-	//size = k*pow(2, zoom)
-	$k		: $max-size/pow(2, $max-zoom);
-	$zoom	: $max-zoom;
+    //size = k*pow(2, zoom)
+    $k        : $max-size/pow(2, $max-zoom);
+    $zoom    : $max-zoom;
 
-	@while $zoom >= $leaflet-min-zoom {
-		$size: $k*pow(2, $zoom);
+    @while $zoom >= $leaflet-min-zoom {
+        $size: $k*pow(2, $zoom);
 
-		@if $size >= 2 {
-			.leaflet-zoom-#{$zoom}  #{$selector} {
-				$size-px: $size * 1px;
-				width	: $size-px;
-				height: $size-px;
-				$size-px: -0.5px * $size;
-				margin-left: $size-px;
-				margin-top: $size-px;
-			}
-			$zoom: $zoom - 1;
-		}
-		@else {
-			//$size to small
-			@if $auto-hide {
-				.leaflet-zoom-#{$zoom}-down  #{$selector} {
-					display: none !important;
-				}
-			}
-			$zoom: -1;		
-		}
-	}
+        @if $size >= 2 {
+            .leaflet-zoom-#{$zoom}  #{$selector} {
+                $size-px: $size * 1px;
+                width   : $size-px;
+                height  : $size-px;
+                $size-px: -0.5px * $size;
+                margin-left: $size-px;
+                margin-top : $size-px;
+            }
+            $zoom: $zoom - 1;
+        }
+        @else {
+            //$size to small
+            @if $auto-hide {
+                .leaflet-zoom-#{$zoom}-down  #{$selector} {
+                    display: none !important;
+                }
+            }
+            $zoom: -1;        
+        }
+    }
 }
 
 
