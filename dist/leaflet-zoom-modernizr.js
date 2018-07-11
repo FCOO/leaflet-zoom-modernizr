@@ -26,9 +26,9 @@
 
       _zoomModernizr: function ( /*e*/ ) {
             var map        = this._map,
-                zoom       = map.getZoom() || 0,
-                minZoom    = map.getMinZoom() || 0,
-                maxZoom    = map.getMaxZoom(),
+                zoom       = Math.round(map.getZoom()) || 0,
+                minZoom    = Math.floor(map.getMinZoom()) || 0,
+                maxZoom    = Math.ceil(map.getMaxZoom()),
                 $container = $(map.getContainer()),
                 i;
 
