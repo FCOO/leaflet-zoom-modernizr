@@ -10,10 +10,6 @@
 (function ($, L/*, window, document, undefined*/) {
     "use strict";
 
-    L.Map.mergeOptions({
-        zoomModernizr: true
-    });
-
     L.Map.ZoomModernizr = L.Handler.extend({
         addHooks: function () {
             this._zoomModernizr();
@@ -27,8 +23,8 @@
       _zoomModernizr: function ( /*e*/ ) {
             var map        = this._map,
                 zoom       = Math.round(map.getZoom()) || 0,
-                minZoom    = Math.floor(map.getMinZoom()) || 0,
-                maxZoom    = Math.ceil(map.getMaxZoom()),
+                minZoom    = map.options.zoomModernizrOptions.minZoom || Math.floor(map.getMinZoom()) || 0,
+                maxZoom    = map.options.zoomModernizrOptions.maxZoom || Math.ceil(map.getMaxZoom()),
                 $container = $(map.getContainer()),
                 i;
 
@@ -43,8 +39,11 @@
       }
     });
 
+    L.Map.mergeOptions({
+        zoomModernizr       : false,
+        zoomModernizrOptions: {}        //{minZoom,maxZoom}
+    });
     L.Map.addInitHook('addHandler', 'zoomModernizr', L.Map.ZoomModernizr);
-
 
 }(jQuery, L, this, document));
 

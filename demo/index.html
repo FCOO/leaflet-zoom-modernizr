@@ -35,11 +35,21 @@
 				demoDivIcon = L.divIcon({className: 'demo-marker', iconSize:null, iconAnchor:null});
 
 
-		var map = L.map('map', {minZoom:1, maxZoom:20, zoomSnap: 0.25, zoomDelta: 0.25}).setView(center, 6);
+		var map = L.map('map', {
+                    minZoom:1,
+                    maxZoom:20,
+                    zoomSnap: 0.25,
+                    zoomDelta: 0.25,
+                    zoomModernizrOptions: {
+                        minZoom: 4,
+                        maxZoom: 6
+                    }
+                }).setView(center, 6);
+
 		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 16,
-       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
-     }).addTo(map);
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
+        }).addTo(map);
 		map.on('zoomend', function( e ){ document.getElementById("zoom").innerHTML = 'zoom = '+this.getZoom(); }, map);
 
 		L.marker(centerLatLng, {icon: demoDivIcon}).addTo(map);
