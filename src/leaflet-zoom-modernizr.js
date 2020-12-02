@@ -22,7 +22,8 @@
 
       _zoomModernizr: function ( /*e*/ ) {
             var map        = this._map,
-                zoom       = Math.round(map.getZoom()) || 0,
+                zoom       = map.getZoom() || 0,
+                floorZoom  = Math.floor(map.getZoom()) || 0,
                 minZoom    = map.options.zoomModernizrOptions.minZoom || Math.floor(map.getMinZoom()) || 0,
                 maxZoom    = map.options.zoomModernizrOptions.maxZoom || Math.ceil(map.getMaxZoom()),
                 $container = $(map.getContainer()),
@@ -33,7 +34,7 @@
 
             for (i=minZoom; i<=maxZoom; i++ )
                 $container
-                    .modernizrToggle( 'leaflet-zoom-' + i          , i == zoom )
+                    .modernizrToggle( 'leaflet-zoom-' + i          , i == floorZoom )
                     .modernizrToggle( 'leaflet-zoom-' + i + '-up'  , i <= zoom )
                     .modernizrToggle( 'leaflet-zoom-' + i + '-down', i >= zoom );
       }
