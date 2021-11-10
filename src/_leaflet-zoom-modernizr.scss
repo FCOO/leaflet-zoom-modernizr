@@ -23,7 +23,7 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
 //    Create show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down,
 //    N = any number between $min-zoom and $max-zoom
 //
-// @mixin show-and-hide-for-modernizr-test( $modernizr-test , $parent-element-type: '', $incl-no-selector: true, $display-value: '', $incl-table-display: true, $only-direct-children: false, $postfix:'' ){
+// @mixin show-and-hide-for-modernizr-test( $modernizr-test , $parent-element-type: '', $incl-no-selector: true, $display-value: '', $incl-table-display: true, $only-direct-children: false, $postfix:'', $class-postfix:'' ){
 
 //******************************************************************************************
 @mixin show-and-hide-for-leaflet-zoom-modernizr(
@@ -39,7 +39,9 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
 
     $display-attr               : 'display',
     $display-value              : '',
-    $no-display-value           : 'none'
+    $no-display-value           : 'none',
+
+    $class-postfix              : ''
 ){
     @for $zoom from $min-zoom through $max-zoom {
         @each $postfix in $modernizr-test-postfix-list {
@@ -51,8 +53,9 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
 
                 $display-attr       : $display-attr,
                 $display-value      : $display-value,
-                $no-display-value   : $no-display-value
+                $no-display-value   : $no-display-value,
 
+                $class-postfix      : $class-postfix
             );
         }
     }
@@ -100,42 +103,3 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
 }
 
 
-//******************************************************************************************
-//    @mixin -ms-show-and-hide-for-leaflet-zoom-modernizr - Internal mixin to create any version of show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down,
-//    N = any number between $min-zoom and $max-zoom
-//
-// @mixin show-and-hide-for-modernizr-test( $modernizr-test , $parent-element-type: '', $incl-no-selector: true, $display-value: '', $incl-table-display: true, $only-direct-children: false, $postfix:'' ){
-
-//******************************************************************************************
-@mixin -ms-show-and-hide-for-leaflet-zoom-modernizr(
-    $min-zoom                   : $leaflet-min-zoom,
-    $max-zoom                   : $leaflet-max-zoom,
-    $modernizr-test-prefix      : 'leaflet-zoom-',
-    $modernizr-test-postfix-list: '' '-up' '-down',
-
-    $parent-element-type     : '',
-
-    $incl-no-selector    : $lzm-incl-no-selector,
-    $incl-table-display  : $lzm-incl-table-display,
-
-    $display-attr        : 'display',
-    $display-value       : false,
-    $no-display-value    : 'none',
-){
-    @for $zoom from $min-zoom through $max-zoom {
-        @each $postfix in $modernizr-test-postfix-list {
-            @include show-and-hide-for-modernizr-test(
-                $modernizr-test     : $modernizr-test-prefix + $zoom + $postfix,
-                $parent-element-type: $parent-element-type,
-                $incl-no-selector   : $incl-no-selector,
-                $incl-table-display : $incl-table-display,
-
-                $display-attr       : $display-attr,
-                $display-value      : $display-value,
-                $no-display-value   : $no-display-value
-
-            );
-        }
-    }
-
-}
