@@ -1,5 +1,5 @@
 /***********************************************
-    _leaflet-zoom-modernizr.scss, 
+    _leaflet-zoom-modernizr.scss,
 
     (c) 2016, FCOO
 
@@ -9,29 +9,52 @@
 
 ************************************************/
 
-$leaflet-min-zoom:  1 !default; 
-$leaflet-max-zoom: 18 !default; 
+$leaflet-min-zoom:  1 !default;
+$leaflet-max-zoom: 18 !default;
 
 
 $lzm-display-value     : '' !default;    // Value for display:... when element is visible. Default = '' => no class created.
 $lzm-incl-no-selector  : false !default; // if true classes for 'show-for-no-TEST are included
-$lzm-incl-table-display: true !default;  // if true classes for table-elements (TABLE, TR,TD etc.) are included 
+$lzm-incl-table-display: true !default;  // if true classes for table-elements (TABLE, TR,TD etc.) are included
 
 
 //******************************************************************************************
 //    @mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom, $max-zoom)
-//    Create show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down, 
+//    Create show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down,
 //    N = any number between $min-zoom and $max-zoom
-//    
+//
+// @mixin show-and-hide-for-modernizr-test( $modernizr-test , $parent-element-type: '', $incl-no-selector: true, $display-value: '', $incl-table-display: true, $only-direct-children: false, $postfix:'' ){
 
 //******************************************************************************************
-@mixin show-and-hide-for-leaflet-zoom-modernizr($min-zoom: $leaflet-min-zoom, $max-zoom: $leaflet-max-zoom){
+@mixin show-and-hide-for-leaflet-zoom-modernizr(
+    $min-zoom                   : $leaflet-min-zoom,
+    $max-zoom                   : $leaflet-max-zoom,
+    $modernizr-test-prefix      : 'leaflet-zoom-',
+    $modernizr-test-postfix-list: '' '-up' '-down',
 
+    $parent-element-type        : '',
+
+    $incl-no-selector           : $lzm-incl-no-selector,
+    $incl-table-display         : $lzm-incl-table-display,
+
+    $display-attr               : 'display',
+    $display-value              : false,
+    $no-display-value           : 'none'
+){
     @for $zoom from $min-zoom through $max-zoom {
-                        //show-and-hide-for-modernizr-test( $modernizr-test        , $parent-element-type, $incl-no-selector    , $display-value    , $incl-table-display     )
-        @include    show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom        , ''                  , $lzm-incl-no-selector, $lzm-display-value, $lzm-incl-table-display );
-        @include    show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -up  , ''                  , $lzm-incl-no-selector, $lzm-display-value, $lzm-incl-table-display );
-        @include    show-and-hide-for-modernizr-test( leaflet-zoom- + $zoom + -down, ''                  , $lzm-incl-no-selector, $lzm-display-value, $lzm-incl-table-display );
+        @each $postfix in $modernizr-test-postfix-list {
+            @include show-and-hide-for-modernizr-test(
+                $modernizr-test     : $modernizr-test-prefix + $zoom + $postfix,
+                $parent-element-type: $parent-element-type,
+                $incl-no-selector   : $incl-no-selector,
+                $incl-table-display : $incl-table-display,
+
+                $display-attr       : $display-attr,
+                $display-value      : $display-value,
+                $no-display-value   : $no-display-value
+
+            );
+        }
     }
 
 }
@@ -42,8 +65,8 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
 //    leaflet-zoom-size - creates css to scale a element to the map zoom
 //    $max-size    : The size of the element at map-zoom-level = $max-zoom
 //    $max-zoom    :    The zoom-level where the element has size = $max-size
-//    $selector    : the selector of the element(s). Default '&' means the mixin is included inside a class-declaration 
-//    $auto-hide: If true the element will be hidden when the element is smaller than 2px 
+//    $selector    : the selector of the element(s). Default '&' means the mixin is included inside a class-declaration
+//    $auto-hide: If true the element will be hidden when the element is smaller than 2px
 //******************************************************************************************
 @mixin leaflet-zoom-size( $max-size, $max-zoom, $selector: '&', $auto-hide: true){
     //size = k*pow(2, zoom)
@@ -71,9 +94,48 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
                     display: none !important;
                 }
             }
-            $zoom: -1;        
+            $zoom: -1;
         }
     }
 }
 
 
+//******************************************************************************************
+//    @mixin -ms-show-and-hide-for-leaflet-zoom-modernizr - Internal mixin to create any version of show/hide-for-leaflet-zoom-N,  show/hide-for-leaflet-zoom-N-up and show/hide-for-leaflet-zoom-N-down,
+//    N = any number between $min-zoom and $max-zoom
+//
+// @mixin show-and-hide-for-modernizr-test( $modernizr-test , $parent-element-type: '', $incl-no-selector: true, $display-value: '', $incl-table-display: true, $only-direct-children: false, $postfix:'' ){
+
+//******************************************************************************************
+@mixin -ms-show-and-hide-for-leaflet-zoom-modernizr(
+    $min-zoom                   : $leaflet-min-zoom,
+    $max-zoom                   : $leaflet-max-zoom,
+    $modernizr-test-prefix      : 'leaflet-zoom-',
+    $modernizr-test-postfix-list: '' '-up' '-down',
+
+    $parent-element-type     : '',
+
+    $incl-no-selector    : $lzm-incl-no-selector,
+    $incl-table-display  : $lzm-incl-table-display,
+
+    $display-attr        : 'display',
+    $display-value       : false,
+    $no-display-value    : 'none',
+){
+    @for $zoom from $min-zoom through $max-zoom {
+        @each $postfix in $modernizr-test-postfix-list {
+            @include show-and-hide-for-modernizr-test(
+                $modernizr-test     : $modernizr-test-prefix + $zoom + $postfix,
+                $parent-element-type: $parent-element-type,
+                $incl-no-selector   : $incl-no-selector,
+                $incl-table-display : $incl-table-display,
+
+                $display-attr       : $display-attr,
+                $display-value      : $display-value,
+                $no-display-value   : $no-display-value
+
+            );
+        }
+    }
+
+}

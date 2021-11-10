@@ -32,7 +32,7 @@
 
 		var center				= [56.1020, 11.2782]
 				centerLatLng	=	L.latLng( center ),
-				demoDivIcon = L.divIcon({className: 'demo-marker', iconSize:null, iconAnchor:null});
+				demoDivIcon = L.divIcon({className: 'demo-marker hide-for-leaflet-zoom-4-down', iconSize:null, iconAnchor:null});
 
 
 		var map = L.map('map', {
@@ -40,6 +40,7 @@
                     maxZoom:20,
                     zoomSnap: 0.25,
                     zoomDelta: 0.25,
+                    zoomModernizr: true,
                     zoomModernizrOptions: {
                         minZoom: 4,
                         maxZoom: 6
