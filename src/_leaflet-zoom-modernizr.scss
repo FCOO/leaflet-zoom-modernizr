@@ -38,7 +38,7 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
     $incl-table-display         : $lzm-incl-table-display,
 
     $display-attr               : 'display',
-    $display-value              : false,
+    $display-value              : '',
     $no-display-value           : 'none'
 ){
     @for $zoom from $min-zoom through $max-zoom {
