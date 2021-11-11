@@ -38,7 +38,7 @@ $lzm-incl-table-display: true !default;  // if true classes for table-elements (
     $incl-table-display         : $lzm-incl-table-display,
 
     $display-attr               : 'display',
-    $display-value              : '',
+    $display-value              : $lzm-display-value,
     $no-display-value           : 'none',
 
     $class-postfix              : ''
